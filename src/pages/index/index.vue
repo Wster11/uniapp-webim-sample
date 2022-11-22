@@ -1,49 +1,89 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+  <view class="content">
+    <view>
+      <view class="form-item">
+        <input
+          class="uni-input"
+          v-model="user"
+          focus
+          placeholder="请输入用户ID"
+        />
+      </view>
+      <view class="form-item">
+        <input
+          class="uni-input"
+          v-model="pwd"
+          type="password"
+          focus
+          placeholder="请输入登录密码"
+        />
+      </view>
+      <button type="primary" @click="login" class="btn">Login</button>
+    </view>
+  </view>
 </template>
-
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+const conn = uni.conn;
+export default {
+  data() {
+    return {
+      user: "",
+      pwd: ""
+    };
+  },
+  onLoad() {},
+  methods: {
+    login() {
+      conn
+        .open({
+          user: this.user,
+          pwd: this.pwd
+        })
+        .then(() => {
+          uni.redirectTo({
+            url: "../contacts/index"
+          });
+        })
+        .catch((e) => {
+          if (e.data.data.error_description === "invalid password") {
+            uni.showToast({
+              icon: "none",
+              title: "用户名或密码错误"
+            });
+          } else {
+            uni.showToast({
+              icon: "none",
+              title: "登录失败"
+            });
+          }
+        });
+    }
+  }
+};
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+.content {
+  padding: 60rpx 24rpx 0 24rpx;
+  height: 100vh;
+  background-color: rgb(241, 241, 241);
+}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
+.text-area {
+  display: flex;
+  justify-content: center;
+}
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
+.btn {
+  font-size: 36rpx;
+}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+.form-item {
+  display: flex;
+  padding: 16rpx 26rpx;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: #fff;
+  margin-bottom: 12rpx;
+}
 </style>

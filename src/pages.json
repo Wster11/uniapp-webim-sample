@@ -1,16 +1,28 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarBackgroundColor": "#4faeea",
+				"navigationBarTitleText": "Easemob Chat",
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/contacts/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Contacts",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/chat/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Chat",
+				"navigationBarTextStyle": "black"
 			}
 		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+	]
 }
