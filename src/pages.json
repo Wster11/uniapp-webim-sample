@@ -3,9 +3,9 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarBackgroundColor": "#4faeea",
+				"navigationBarBackgroundColor": "#fff",
 				"navigationBarTitleText": "Easemob Chat",
-				"backgroundTextStyle": "light"
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{

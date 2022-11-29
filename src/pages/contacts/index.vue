@@ -1,12 +1,13 @@
 <template>
   <view class="content">
-    <view class="tip">Tips: 请选择你的联系人进入聊天</view>
     <view
       class="contact-item"
       v-for="item in contacts"
       @click="toChat(item)"
       :key="item"
-      >{{ item }}
+    >
+      <view class="avatar"> </view>
+      <view>{{ item }}</view>
     </view>
   </view>
 </template>
@@ -42,13 +43,23 @@ export default {
   padding: 30rpx;
 }
 
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  background: #ccc;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background: url("../../static/logo.png");
+  background-size: 100%;
+}
+
 .contact-item {
-  color: #fff;
+  display: flex;
   padding: 20rpx;
-  background: #aaa;
-  background: #4faeea;
-  border-radius: 20rpx;
   margin: 20rpx;
+  align-items: center;
+  background: #f9f8f8;
+  border-radius: 20rpx;
 }
 
 .tip {

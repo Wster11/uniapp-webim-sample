@@ -18,8 +18,11 @@
           placeholder="请输入登录密码"
         />
       </view>
-      <button type="primary" @click="login" class="btn">Login</button>
+      <button type="primary" :loading="loading" @click="login" class="btn">
+        Login
+      </button>
     </view>
+    <view class="register-tip">没有账号? 立即注册</view>
   </view>
 </template>
 <script>
@@ -28,12 +31,14 @@ export default {
   data() {
     return {
       user: "",
-      pwd: ""
+      pwd: "",
+      loading: false
     };
   },
   onLoad() {},
   methods: {
     login() {
+      this.loading = true;
       conn
         .open({
           user: this.user,
@@ -56,6 +61,9 @@ export default {
               title: "登录失败"
             });
           }
+        })
+        .finally(() => {
+          this.loading = false;
         });
     }
   }
@@ -85,5 +93,10 @@ export default {
   flex-wrap: nowrap;
   background-color: #fff;
   margin-bottom: 12rpx;
+}
+.register-tip {
+  font-size: 15px;
+  text-align: right;
+  margin-top: 20rpx;
 }
 </style>
