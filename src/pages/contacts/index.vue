@@ -19,7 +19,7 @@ export default {
       contacts: []
     };
   },
-  onLoad() {
+  onShow() {
     this.getContacts();
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content {
   padding: 30rpx;
 }

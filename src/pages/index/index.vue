@@ -19,10 +19,12 @@
         />
       </view>
       <button type="primary" :loading="loading" @click="login" class="btn">
-        Login
+        登录
       </button>
     </view>
-    <view class="register-tip">没有账号? 立即注册</view>
+    <navigator url="/pages/register/index" open-type="redirect">
+      <view class="register-tip">没有账号? 立即注册</view>
+    </navigator>
   </view>
 </template>
 <script>
@@ -45,7 +47,7 @@ export default {
           pwd: this.pwd
         })
         .then(() => {
-          uni.redirectTo({
+          uni.switchTab({
             url: "../contacts/index"
           });
         })
@@ -70,7 +72,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content {
   padding: 60rpx 24rpx 0 24rpx;
   height: 100vh;

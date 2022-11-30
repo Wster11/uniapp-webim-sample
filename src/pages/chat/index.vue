@@ -124,7 +124,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content {
   min-height: 100vh;
   background-color: rgb(241, 241, 241);

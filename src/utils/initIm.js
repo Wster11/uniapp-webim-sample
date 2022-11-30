@@ -26,5 +26,40 @@ conn.addEventHandler("message", {
   }
 });
 
+conn.addEventHandler("contact", {
+  onContactInvited: (message) => {
+    console.log(message, "contact invite msg");
+    uni.showModal({
+      title: `${message.from}请求添加好友`,
+      content: message.status,
+      cancelText: "拒绝",
+      confirmText: "接受",
+      success: (res) => {
+        if (res.confirm === true) {
+          // 接受好友申请
+          conn.acceptContactInvite(message.from);
+        } else {
+          // 拒绝好友申请
+          conn.declineContactInvite(message.from);
+        }
+      }
+    });
+  },
+  onContactAgreed: (message) => {
+    console.log(message, "contact agreed msg");
+    uni.showToast({
+      icon: "none",
+      title: `${message.from}已同意你的好友申请`
+    });
+  },
+  onContactRefuse: (message) => {
+    console.log(message, "contact refuse msg");
+    uni.showToast({
+      icon: "none",
+      title: `${message.from}已拒绝你的好友申请`
+    });
+  }
+});
+
 export { IM_CONFIG };
 export default conn;
