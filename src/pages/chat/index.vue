@@ -4,7 +4,7 @@
       <view
         v-for="item in chatMsg"
         :key="item.id"
-        :class="getMsgClassName(item)"
+        :class="item.from !== user ? 'msg-item msg-left' : 'msg-item msg-right'"
       >
         <view class="from">{{ item.from || user }} </view>
         <!-- 文本消息 -->
@@ -26,7 +26,7 @@
           @confirm="sendTextMsg"
           placeholder="请输入..."
         />
-        <view @click="selectImg" class="select-img"> </view>
+        <view @tap="selectImg" class="select-img"> </view>
       </view>
     </view>
   </view>
@@ -56,13 +56,6 @@ export default {
     }
   },
   methods: {
-    getMsgClassName(item) {
-      if (item.from) {
-        return "msg-item msg-left";
-      } else {
-        return "msg-item msg-right";
-      }
-    },
     selectImg() {
       let _this = this;
       const opt = {

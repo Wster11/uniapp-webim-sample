@@ -18,7 +18,7 @@
           placeholder="请输入密码"
         />
       </view>
-      <button type="primary" :loading="loading" @click="register" class="btn">
+      <button type="primary" :loading="loading" @tap="register" class="btn">
         立即注册
       </button>
     </view>

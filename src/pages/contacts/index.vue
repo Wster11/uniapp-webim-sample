@@ -3,7 +3,7 @@
     <view
       class="contact-item"
       v-for="item in contacts"
-      @click="toChat(item)"
+      @tap="toChat(item)"
       :key="item"
     >
       <view class="avatar"> </view>

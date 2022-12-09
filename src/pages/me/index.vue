@@ -8,12 +8,12 @@
         class="form-item-btn"
         size="mini"
         type="primary"
-        @click="addContact"
+        @tap="addContact"
       >
         添加
       </button>
     </view>
-    <button class="log-out" @click="logout">退出登录</button>
+    <button class="log-out" @tap="logout">退出登录</button>
   </view>
 </template>
 <script>

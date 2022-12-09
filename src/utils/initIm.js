@@ -17,12 +17,13 @@ uni.conn = conn;
 
 conn.addEventHandler("message", {
   onTextMessage: (message) => {
-    console.log(message, "message");
-    store.commit("pushMessage", { uid: message.from, msg: message });
+    // 表示是多端同步过来的消息
+    let uid = message.from === uni.conn.user ? message.to : message.from;
+    store.commit("pushMessage", { uid, msg: message });
   },
   onImageMessage: (message) => {
-    console.log(message, "imageMsg");
-    store.commit("pushMessage", { uid: message.from, msg: message });
+    let uid = message.from === uni.conn.user ? message.to : message.from;
+    store.commit("pushMessage", { uid, msg: message });
   }
 });
 
