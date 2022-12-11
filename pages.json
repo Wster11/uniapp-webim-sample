@@ -1,0 +1,64 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Easemob Chat",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/contacts/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Contacts",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Me",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/chat/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Chat",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/register/index",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTitleText": "Easemob Chat",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3478f6",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/contacts/index",
+				"iconPath": "static/chat.png",
+				"selectedIconPath": "static/chat-active.png",
+				"text": "Chats"
+			},
+			{
+				"pagePath": "pages/me/index",
+				"iconPath": "static/me.png",
+				"selectedIconPath": "static/me-active.png",
+				"text": "Me"
+			}
+		]
+	}
+}
