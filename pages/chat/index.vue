@@ -158,6 +158,7 @@ export default {
 
 .msg-content {
   padding: 24rpx;
+  padding-bottom: 50rpx;
 }
 
 .msg-left {
