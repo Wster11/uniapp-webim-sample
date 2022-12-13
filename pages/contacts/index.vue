@@ -19,7 +19,7 @@ export default {
       contacts: []
     };
   },
-  onShow() {
+  onload() {
     this.getContacts();
   },
   methods: {

@@ -50,6 +50,10 @@ export default {
           uni.switchTab({
             url: "../contacts/index"
           });
+          uni.showToast({
+            icon: "none",
+            title: "登录成功"
+          });
         })
         .catch((e) => {
           if (e.data.data.error_description === "invalid password") {
