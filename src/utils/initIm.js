@@ -1,4 +1,4 @@
-import webIM from "../sdk/uniapp-sdk-4.1.2";
+import webIM from "../sdk/Easemob-chat.js";
 import store from "../store";
 
 /**
@@ -20,6 +20,10 @@ conn.addEventHandler("message", {
     // 表示是多端同步过来的消息
     let uid = message.from === uni.conn.user ? message.to : message.from;
     store.commit("pushMessage", { uid, msg: message });
+	uni.createPushMessage({
+		title: '您有新消息',
+		content: message.msg
+	})
   },
   onImageMessage: (message) => {
     let uid = message.from === uni.conn.user ? message.to : message.from;

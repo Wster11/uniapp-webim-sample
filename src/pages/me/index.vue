@@ -34,7 +34,14 @@ export default {
       });
     },
     addContact() {
-      conn.addContact(this.uid, "加个好友吧～");
+      conn.addContact(this.uid, "加个好友吧～").then(()=>{
+		  uni.showToast({
+		  	title:'发送成功'
+		  })
+		  console.log('发送好友请求成功', this.uid)
+	  }).catch((e)=>{
+		   console.log('发送好友请求失败', this.uid)
+	  });
     }
   }
 };
