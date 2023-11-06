@@ -32,7 +32,7 @@
   </view>
 </template>
 <script>
-import webIM from "../../sdk/uniapp-sdk-4.1.2";
+import webIM from "../../sdk/Easemob-chat";
 import { IM_CONFIG } from "../../utils/initIm";
 import { MSG_TYPE } from "../../consts";
 
@@ -105,12 +105,39 @@ export default {
         to: this.to,
         type: MSG_TYPE.txt
       });
+
+      let combMsg = webIM.message.create({
+        chatType: "singleChat",
+        to: this.to,
+        type: "combine",
+        compatibleText: "[不支持消息类型]",
+        title: "合并消息标题",
+        summary: "合并消息汇总",
+        messageList: [textMsg]
+      });
+
       uni.conn.send(textMsg).then((res) => {
+        console.log(res, 'resresresres')
         this.$store.commit("pushMessage", {
           uid: this.to,
           msg: textMsg
         });
         this.msg = "";
+        console.log('发送成功')
+
+        // uni.conn
+        //   .send(combMsg)
+        //   .then((res) => {
+        //     this.$store.commit("pushMessage", {
+        //       uid: this.to,
+        //       msg: combMsg
+        //     });
+        //   })
+        //   .catch((e) => {
+        //     console.log(e, "eeee");
+        //   });
+      }).catch((e) => {
+        console.log(e, 'eeee')
       });
     }
   }
@@ -178,9 +205,11 @@ export default {
   border-radius: 20rpx;
   color: #fff;
 }
+
 .img-msg {
   max-width: 300rpx;
 }
+
 .select-img {
   width: 50rpx;
   background: url("../../static/image.png");
