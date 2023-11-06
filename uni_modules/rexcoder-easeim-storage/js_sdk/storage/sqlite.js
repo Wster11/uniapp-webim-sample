@@ -1,6 +1,7 @@
 import Storage from "./core";
 
 function openSqlite({ dbName, dbPath }) {
+  console.log(dbName, 'dbNamedbName')
   //这plus.sqlite只在手机APP上运行，记得要在打包模块设置勾选“sqlite”数据库。
   return new Promise((resolve, reject) => {
     plus.sqlite.openDatabase({

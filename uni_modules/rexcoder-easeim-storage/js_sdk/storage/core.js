@@ -44,11 +44,14 @@ class Storage {
   ) {
     const { dbName, version, user } = options;
     this.user = user;
+    console.log(dbName, 'dbNamedbName1')
     try {
       // if (isOpen(dbName, `_doc/${dbName}.db`)) {
       //   console.log("db is open already");
       //   return;
       // }
+
+      console.log(dbName, 'dbNamedbName')
       await openSqlite({ dbName, dbPath: `_doc/${dbName}.db` });
       await createConversationTable();
       await createMessageTable();
